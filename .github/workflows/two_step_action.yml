@@ -18,6 +18,6 @@ jobs:
   step_three:
     runs-on: ubuntu-24.04
     steps:
-      - uses: action/hello-world-javascript-action@bd8ac3ad68ccb9124bed4cad55caaf6743803ae8
+      - uses: actions/hello-world-javascript-action@bd8ac3ad68ccb9124bed4cad55caaf6743803ae8
         with:
           who-to-greet: 'whoever'
