@@ -1,0 +1,23 @@
+name: Two Step Action
+# This workflow runs two separate jobs when manually triggered
+on:
+  workflow_dispatch:
+
+jobs:
+  step_one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello from bash"
+  
+  step_two:
+    runs-on: ubuntu-latest
+    steps:
+      - run: print("Hello from python")
+        shell: python
+  
+  step_three:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: action/hello-world-javascript-action@bd8ac3ad68ccb9124bed4cad55caaf6743803ae8
+        with:
+          who-to-greet: 'whoever'
