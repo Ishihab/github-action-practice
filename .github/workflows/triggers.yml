@@ -1,16 +1,15 @@
 on:
-    issues:
-        types:
-          - opened
+  push:
+    branches: 
+      - main
+      - test
 
 jobs:
-    label_issue:
-        permissions: 
-            issues: write
+    test:
         runs-on: ubuntu-latest
         steps:
-          - env:
-                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                ISSUE_URL: ${{ github.event.issue.html_url }}
-            run: |
-              gh issue edit $ISSUE_URL --add-label "triage"
+          - name: checkout code
+            uses: actions/checkout@v5
+          - name: run a one-line script
+            run : echo "This workflow  is triggers on ${{ github.event_name}} even on branche ${{ github.ref_name}} by ${{ github.actor}}"
+        
